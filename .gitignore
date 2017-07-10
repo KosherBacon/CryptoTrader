@@ -1,0 +1,9 @@
+.idea/
+
+bazel-CryptoTrader
+bazel-bin
+bazel-java
+bazel-testlogs
+bazel-out
+bazel-genfiles
+data-dir

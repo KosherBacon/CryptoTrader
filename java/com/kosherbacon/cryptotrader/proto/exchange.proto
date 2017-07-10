@@ -1,0 +1,92 @@
+syntax = "proto2";
+
+option java_package = "com.kosherbacon.cryptotrader.proto";
+option java_outer_classname = "Exchange";
+
+message ExchangeSymbols {
+    enum Symbol {
+        btcusd = 0;
+        ethusd = 1;
+        ethbtc = 2;
+    }
+    repeated Symbol symbols = 1;
+}
+
+message ExchangeSide {
+    enum Side {
+        bid = 0;
+        ask = 1;
+    }
+}
+
+message ExchangeMakerSide {
+    enum MakerSide {
+        bid = 0;
+        ask = 1;
+        auction = 2;
+    }
+}
+
+message ExchangeType {
+    enum Type {
+        change = 0;
+        trade = 1;
+        auction_open = 2;
+        auction_indicative = 3;
+    }
+}
+
+message ExchangeReason {
+    enum Reason {
+        initial = 0;
+        place = 1;
+        cancel = 2;
+        trade = 3;
+    }
+}
+
+message ExchangeEvent {
+    optional ExchangeType.Type type = 1;
+    optional ExchangeSide.Side side = 2;
+    optional ExchangeMakerSide.MakerSide makerSide = 3;
+    optional ExchangeReason.Reason reason = 4;
+    optional string tid = 5;
+    optional double price = 6;
+    optional double remaining = 7;
+    optional double amount = 8;
+    optional double delta = 9;
+
+    // Auction
+    optional double auction_open_ms = 10;
+    optional double auction_time_ms = 11;
+    optional double first_indicative_ms = 12;
+    optional double last_cancel_time_ms = 13;
+    optional uint64 eid = 14;
+    optional double highest_bid_price = 15;
+    optional double lowest_ask_price = 16;
+    optional double indicative_price = 17;
+    optional double indicative_quantity = 18;
+    optional double time_ms = 19;
+}
+
+message ExchangeUpdate {
+    enum Type {
+        update = 0;
+    }
+    optional Type type = 1;
+    optional uint64 eventId = 2;
+    repeated ExchangeEvent events = 3;
+}
+
+message Ticker {
+    optional double bid = 1;
+    optional double ask = 2;
+    optional double last = 3;
+
+    message Volume {
+        optional double BTC = 1;
+        optional double USD = 2;
+        optional uint64 timestamp = 3;
+    }
+    optional Volume volume = 4;
+}

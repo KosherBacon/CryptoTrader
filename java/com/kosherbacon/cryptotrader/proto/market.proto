@@ -1,0 +1,9 @@
+syntax = "proto2";
+
+option java_package = "com.kosherbacon.cryptotrader.proto";
+option java_outer_classname = "Market";
+
+message MarketStatus {
+    optional string name = 1;
+    optional double price = 2;
+}
