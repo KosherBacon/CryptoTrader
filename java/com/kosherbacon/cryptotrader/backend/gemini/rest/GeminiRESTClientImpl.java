@@ -3,6 +3,7 @@ package com.kosherbacon.cryptotrader.backend.gemini.rest;
 import com.google.inject.Inject;
 import com.google.protobuf.util.JsonFormat;
 import com.kosherbacon.cryptotrader.backend.gemini.rest.Annotations.GeminiBaseURL;
+import com.kosherbacon.cryptotrader.backend.gemini.rest.Annotations.GeminiHttpClient;
 import com.kosherbacon.cryptotrader.proto.Exchange.ExchangeSymbols;
 import com.kosherbacon.cryptotrader.proto.Exchange.ExchangeSymbols.Symbol;
 import com.kosherbacon.cryptotrader.proto.Exchange.Ticker;
@@ -18,7 +19,8 @@ public class GeminiRESTClientImpl implements GeminiRESTClient {
   private OkHttpClient okHttpClient;
 
   @Inject
-  public GeminiRESTClientImpl(@GeminiBaseURL String baseUrl, OkHttpClient okHttpClient) {
+  public GeminiRESTClientImpl(@GeminiBaseURL String baseUrl,
+                              @GeminiHttpClient OkHttpClient okHttpClient) {
     this.baseUrl = baseUrl;
     this.okHttpClient = okHttpClient;
   }

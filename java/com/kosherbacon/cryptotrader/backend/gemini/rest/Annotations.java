@@ -14,4 +14,8 @@ public class Annotations {
   @BindingAnnotation
   @Target({ FIELD, PARAMETER, METHOD }) @Retention(RUNTIME)
   public @interface GeminiBaseURL {}
+
+  @BindingAnnotation
+  @Target({ FIELD, PARAMETER, METHOD }) @Retention(RUNTIME)
+  public @interface GeminiHttpClient {}
 }

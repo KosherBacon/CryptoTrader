@@ -1,3 +1,6 @@
+# Snapshot repository
+SONATYPE_NEXUS_REPOSITORY = "http://oss.sonatype.org/content/repositories/snapshots"
+
 # proto_library rules implicitly depend on @com_google_protobuf//:protoc,
 # which is the proto-compiler.
 # This statement defines the @com_google_protobuf repo.
@@ -85,8 +88,9 @@ maven_jar(
 
 maven_jar(
     name = "ta4j",
-    artifact = "eu.verdelhan:ta4j:0.8",
-    sha1 = "9d8b153a160dae074654b15fc05d9afc47a5133b",
+    artifact = "eu.verdelhan:ta4j:0.9-SNAPSHOT",
+    sha1 = "f7cb66eb020e7cc31854f56ace3733a2e1d9d01e",
+    repository = SONATYPE_NEXUS_REPOSITORY,
 )
 
 maven_jar(
