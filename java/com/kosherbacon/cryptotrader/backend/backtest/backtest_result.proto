@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+option java_package = "com.kosherbacon.cryptotrader.backend.backtest";
+option java_outer_classname = "Backtest";
+
+message BacktestResult {
+    optional double initial_amount = 1;
+    optional double num_trades = 2;
+    optional double buy_and_hold_profit = 3;
+    optional double profitable_trades_ratio = 4;
+    optional double max_drawdown = 5;
+    optional double reward_risk_ratio = 6;
+    optional double linear_transaction_cost = 7;
+    optional double transaction_percent_cost = 8;
+}

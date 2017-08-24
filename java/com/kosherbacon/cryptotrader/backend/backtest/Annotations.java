@@ -16,5 +16,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public class Annotations {
   @BindingAnnotation
   @Target({ FIELD, PARAMETER, METHOD }) @Retention(RUNTIME)
-  public @interface BackendStrategy {}
+  public @interface BacktestStrategy {}
+
+  @BindingAnnotation
+  @Target({ FIELD, PARAMETER, METHOD }) @Retention(RUNTIME)
+  public @interface BacktestTimeSeries {}
 }

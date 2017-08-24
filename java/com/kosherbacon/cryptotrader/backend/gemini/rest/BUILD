@@ -42,5 +42,6 @@ java_library(
         ":impl",
         ":rest",
         "@com_google_inject_guice//jar",
+        "@okhttp3//jar",
     ],
 )
